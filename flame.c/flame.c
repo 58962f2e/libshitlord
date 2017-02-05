@@ -3,8 +3,8 @@
 #include <unistd.h>
 #include <time.h>
 #define BUFFER_SIZE 800
-#define PAUSE 0.01
-
+#define PAUSE 0.03
+#define PAUSER 10000000
 void christopher_nolan (char level) {
         //printf("%d",level);
 	if (level != 0) {
@@ -12,6 +12,7 @@ void christopher_nolan (char level) {
 		return;
 	} else {
                 //printf("\n");
+		//for (int i = 0; i < PAUSER; i++ ) {}
 		sleep(PAUSE);
 		return;
 	}

@@ -6,7 +6,7 @@
 ## cd FlameGraph
 ## perf record -F 99 -a -g -- sleep 60
 perf script | ~/git/FlameGraph/stackcollapse-perf.pl > out.perf-folded
-~/git/FlameGraph/flamegraph.pl out.perf-folded > perf-kernel.svg
+~/git/FlameGraph/flamegraph.pl out.perf-folded > /tmp/a.svg
 #The perf record command samples at 99 Hertz (-F 99) across all CPUs (-a), capturing stack traces so that a call graph (-g) of function ancestry can be generated later. The samples are saved in a perf.data file, which are read by perf script.
 #
 #I create the intermediate file, out.perf-folded, to make it a little quicker when creating multiple filtered flame graphs from the same data. Eg:

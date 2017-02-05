@@ -1,12 +1,16 @@
 #!/bin/bash -x
 
 mkfifo fifo
+rm perf-folded  perf.data  perf.data.old
+
 cat fifo | ./flame &
 pid=$!
-ps -p ${pid}
 perf record -F 99 -p ${pid} -g -- &
 ps -p ${pid}
-read a
-python3 -c 'import sys;sys.stdout.buffer.write(bytes([2,3,4,100,102,104,106,108,33,23,12,3]))' > fifo
-fg %1
+sleep 1
+# python3 -c 'import sys,math;sys.stdout.buffer.write(bytes([int(0x80+0x80*math.sin(i)) for i in range(30)]))' > fifo
+./img2skyline.py a.png > fifo
+
+sleep 20 
+wait ${pid}
 kill %2
