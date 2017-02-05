@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
-#define BUFFER_SIZE 8000
+#define BUFFER_SIZE 800
 #define PAUSE 0.01
 
 void christopher_nolan (char level) {
